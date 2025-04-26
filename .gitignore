@@ -1,0 +1,6 @@
+__debug*
+*.out
+*.html
+.local*.json
+test-output.json
+generated*.css
