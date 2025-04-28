@@ -5,6 +5,7 @@ import (
 
 	hxhelpers "github.com/TudorHulban/hx-core/helpers"
 	hxhtml "github.com/TudorHulban/hx-core/html"
+	pagecss "github.com/TudorHulban/hx-core/page-css"
 	hxprimitives "github.com/TudorHulban/hx-core/primitives"
 )
 
@@ -62,4 +63,8 @@ func WidgetInputDate(params *ParamsWidgetInputDate) *ResponseWidgetInputDate {
 			`<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>`,
 		),
 	}
+}
+
+func CSSInputDate() *pagecss.CSSElement {
+	return &pagecss.CSSElement{}
 }

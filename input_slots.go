@@ -1,6 +1,8 @@
 package widgets
 
 import (
+	"fmt"
+
 	hxhelpers "github.com/TudorHulban/hx-core/helpers"
 	hxhtml "github.com/TudorHulban/hx-core/html"
 	pagecss "github.com/TudorHulban/hx-core/page-css"
@@ -8,18 +10,33 @@ import (
 )
 
 type InfoSlot struct {
-	SlotID     int64
+	Caption string
+
 	ResourceID int64
-	Caption    string
+	SlotID     int64
 }
 
-func WidgetSlots(slotsCaptions []string, numberColumns uint8) hxprimitives.Node {
-	element := func(caption string) hxprimitives.Node {
+func (slot *InfoSlot) URL() string {
+	return fmt.Sprintf(
+		"xxx/%d/%d",
+
+		slot.ResourceID,
+		slot.SlotID,
+	)
+}
+
+type ParamsWidgetSlots struct {
+	SlotsInfo     []*InfoSlot
+	NumberColumns uint8
+}
+
+func WidgetSlots(params *ParamsWidgetSlots) hxprimitives.Node {
+	element := func(slotURL string, caption string) hxprimitives.Node {
 		return hxprimitives.Raw(
 			hxhelpers.Sprintf(
 				`<button class="time-slot" type="button" onclick="handletimeclick('%s')">%s</button>`,
 
-				caption,
+				slotURL,
 				caption,
 			),
 		)
@@ -35,13 +52,16 @@ func WidgetSlots(slotsCaptions []string, numberColumns uint8) hxprimitives.Node 
 
 	currentRow := make([]hxprimitives.Node, 0)
 
-	for ix, slot := range slotsCaptions {
+	for ix, slot := range params.SlotsInfo {
 		currentRow = append(
 			currentRow,
-			element(slot),
+			element(
+				slot.URL(),
+				slot.Caption,
+			),
 		)
 
-		if (ix > 0 && (ix+1)%int(numberColumns) == 0) || ix == len(slotsCaptions)-1 {
+		if (ix > 0 && (ix+1)%int(params.NumberColumns) == 0) || ix == len(params.SlotsInfo)-1 {
 			rows = append(
 				rows,
 				hxhtml.Div(

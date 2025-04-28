@@ -11,7 +11,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestSlots(t *testing.T) {
+func TestAppointment(t *testing.T) {
 	fragment := WidgetSlots(
 		&ParamsWidgetSlots{
 			NumberColumns: 2,
