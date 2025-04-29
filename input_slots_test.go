@@ -14,7 +14,7 @@ import (
 func TestSlots(t *testing.T) {
 	fragment := WidgetSlots(
 		&ParamsWidgetSlots{
-			NumberColumns: 2,
+			NumberColumns: 1,
 
 			SlotsInfo: []*InfoSlot{
 				{

@@ -61,7 +61,7 @@ func WidgetSlots(params *ParamsWidgetSlots) hxprimitives.Node {
 			),
 		)
 
-		if (ix > 0 && (ix+1)%int(params.NumberColumns) == 0) || ix == len(params.SlotsInfo)-1 {
+		if (ix+1)%int(params.NumberColumns) == 0 || ix == len(params.SlotsInfo)-1 {
 			rows = append(
 				rows,
 				hxhtml.Div(

@@ -3,6 +3,7 @@ package widgets
 import (
 	"fmt"
 	"testing"
+	"time"
 
 	hxcomponents "github.com/TudorHulban/hx-core/components"
 	hxhtml "github.com/TudorHulban/hx-core/html"
@@ -12,31 +13,45 @@ import (
 )
 
 func TestAppointment(t *testing.T) {
-	fragment := WidgetSlots(
-		&ParamsWidgetSlots{
-			NumberColumns: 2,
+	fragment := WidgetAppointment(
+		&ParamsWidgetAppointment{
+			ParamsWidgetSlots: ParamsWidgetSlots{
+				NumberColumns: 1,
 
-			SlotsInfo: []*InfoSlot{
-				{
-					ResourceID: 1,
-					SlotID:     1000,
-					Caption:    "10 00 - dr. John Smith",
+				SlotsInfo: []*InfoSlot{
+					{
+						ResourceID: 1,
+						SlotID:     1000,
+						Caption:    "10 00 - dr. John Smith",
+					},
+					{
+						ResourceID: 2,
+						SlotID:     1030,
+						Caption:    "10 30 - dr. Martha Doe",
+					},
+					{
+						ResourceID: 1,
+						SlotID:     1100,
+						Caption:    "11 00 - dr. John Smith",
+					},
+					{
+						ResourceID: 2,
+						SlotID:     1100,
+						Caption:    "11 00 - dr. Martha Doe",
+					},
 				},
-				{
-					ResourceID: 2,
-					SlotID:     1030,
-					Caption:    "10 30 - dr. Martha Doe",
-				},
-				{
-					ResourceID: 1,
-					SlotID:     1100,
-					Caption:    "11 00 - dr. John Smith",
-				},
-				{
-					ResourceID: 2,
-					SlotID:     1100,
-					Caption:    "11 00 - dr. Martha Doe",
-				},
+			},
+			ParamsWidgetInputDate: ParamsWidgetInputDate{
+				CSSID: "schedule",
+
+				DateValue:   time.Now(),
+				HowManyDays: 3,
+			},
+			ParamsButtonSubmit: hxcomponents.ParamsButtonSubmit{
+				Label:    "Submit",
+				CSSClass: "btn-submit",
+
+				HXActionEndpoint: "xxx",
 			},
 		},
 	)
@@ -60,7 +75,8 @@ func TestAppointment(t *testing.T) {
 		},
 
 		Body: []hxprimitives.Node{
-			fragment,
+			fragment.LinkJavascript,
+			fragment.HTML,
 		},
 	}
 
@@ -70,9 +86,13 @@ func TestAppointment(t *testing.T) {
 	defer writerCSS.Close()
 
 	cssPage := pagecss.NewCSSPage(
-		CSSBase,
-		CSSSite,
-		CSSWidgetSlots,
+		append(
+			[]func() *pagecss.CSSElement{
+				CSSBase,
+				CSSSite,
+			},
+			fragment.CSS...,
+		)...,
 	)
 
 	cssPage.GetCSSTo(writerCSS)

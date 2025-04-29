@@ -31,6 +31,7 @@ func WidgetAppointment(params *ParamsWidgetAppointment) *ResponseWidgetAppointme
 		CSS: []func() *pagecss.CSSElement{
 			CSSInputDate,
 			CSSWidgetSlots,
+			CSSAppointment,
 		},
 
 		HTML: hxhtml.Div(
@@ -38,17 +39,35 @@ func WidgetAppointment(params *ParamsWidgetAppointment) *ResponseWidgetAppointme
 				"appointment-container",
 			),
 
-			hxprimitives.AttrCSS(
-				`display: flex; flex-wrap: nowrap; gap: 0;`,
+			hxhtml.Div(
+				hxprimitives.AttrCSS(
+					`display: flex; flex-wrap: nowrap; gap: 0;`,
+				),
+
+				nodesInputDate.HTML,
+
+				WidgetSlots(&params.ParamsWidgetSlots),
 			),
-
-			nodesInputDate.HTML,
-
-			WidgetSlots(&params.ParamsWidgetSlots),
 
 			hxcomponents.ButtonSubmit(
 				&params.ParamsButtonSubmit,
 			),
 		),
+	}
+}
+
+func CSSAppointment() *pagecss.CSSElement {
+	return &pagecss.CSSElement{
+		CSSAllMedias: `
+		.appointment-container {
+			width: fit-content;
+			background-color:rgb(134, 146, 138);
+
+			.hours-grid {
+				width: 100%;
+				padding-top: 2.1em;
+			}
+		}
+		`,
 	}
 }
