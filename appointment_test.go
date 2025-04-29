@@ -5,6 +5,7 @@ import (
 	"testing"
 	"time"
 
+	hxcore "github.com/TudorHulban/hx-core"
 	hxcomponents "github.com/TudorHulban/hx-core/components"
 	hxhtml "github.com/TudorHulban/hx-core/html"
 	pagecss "github.com/TudorHulban/hx-core/page-css"
@@ -50,7 +51,9 @@ func TestAppointment(t *testing.T) {
 			ParamsButtonSubmit: hxcomponents.ParamsButtonSubmit{
 				Label:    "Submit",
 				CSSClass: "btn-submit",
+				CSSID:    "submit",
 
+				HXActionType:     hxcore.HXPOST,
 				HXActionEndpoint: "xxx",
 			},
 		},

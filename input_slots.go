@@ -9,6 +9,11 @@ import (
 	hxprimitives "github.com/TudorHulban/hx-core/primitives"
 )
 
+const (
+	_ButtonCSSClass = "time-slot"
+	_SlotPrefix     = "slot"
+)
+
 type InfoSlot struct {
 	Caption string
 
@@ -25,28 +30,67 @@ func (slot *InfoSlot) URL() string {
 	)
 }
 
+func (slot *InfoSlot) CSSID() string {
+	return fmt.Sprintf(
+		"%s%d-%d",
+
+		_SlotPrefix,
+		slot.ResourceID,
+		slot.SlotID,
+	)
+}
+
 type ParamsWidgetSlots struct {
 	SlotsInfo     []*InfoSlot
 	NumberColumns uint8
 }
 
 func WidgetSlots(params *ParamsWidgetSlots) hxprimitives.Node {
-	element := func(slotURL string, caption string) hxprimitives.Node {
+	element := func(slot *InfoSlot) hxprimitives.Node {
 		return hxprimitives.Raw(
 			hxhelpers.Sprintf(
-				`<button class="time-slot" type="button" onclick="handletimeclick('%s')">%s</button>`,
+				`<button class=%s id="%s" type="button" onclick="handletimeclick('%s')">%s</button>`,
 
-				slotURL,
-				caption,
+				_ButtonCSSClass,
+				slot.CSSID(),
+				slot.URL(),
+				slot.Caption,
 			),
 		)
 	}
 
 	rows := []hxprimitives.Node{
 		hxprimitives.Raw(
-			`<script>
-			function handletimeclick(slot){console.log('time slot clicked:', slot);};
+			fmt.Sprintf(
+				`<script>
+			function handletimeclick(data){
+			const elems = document.querySelectorAll('.%s');
+			elems.forEach(element => {
+			if (element && element.classList) {
+        	element.classList.remove('selected');
+    		}
+			});
+
+			const parts = data.split('/');
+  			const resourceID = parseInt(parts[1], 10);
+  			const slotID = parseInt(parts[2], 10);
+			const slotCSSID = "%s"+resourceID+"-"+slotID
+
+			const slotElement = document.getElementById(slotCSSID);
+
+			if (slotElement) {
+    		slotElement.classList.add('selected');
+
+			console.log('time slot clicked:', data);
+  			} else {
+			console.log(slotCSSID, resourceID, slotID);
+			}
+			};
 			</script>`,
+
+				_ButtonCSSClass,
+				_SlotPrefix,
+			),
 		),
 	}
 
@@ -55,10 +99,7 @@ func WidgetSlots(params *ParamsWidgetSlots) hxprimitives.Node {
 	for ix, slot := range params.SlotsInfo {
 		currentRow = append(
 			currentRow,
-			element(
-				slot.URL(),
-				slot.Caption,
-			),
+			element(slot),
 		)
 
 		if (ix+1)%int(params.NumberColumns) == 0 || ix == len(params.SlotsInfo)-1 {
@@ -93,15 +134,21 @@ func CSSWidgetSlots() *pagecss.CSSElement {
 	return &pagecss.CSSElement{
 		CSSAllMedias: `
 		.hours-grid {
-    	width: 40%;
+    		width: 40%;
 		}
 
 		.hours-row {
-    	display: flex;
+    		display: flex;
 		}
 
 		.time-slot {
-    	flex-grow: 1;
+    		flex-grow: 1;
+		}
+
+		.selected {
+  			background-color: lightblue;
+  			border: 1px solid blue;
+  			font-weight: bold;
 		}
 		`,
 	}

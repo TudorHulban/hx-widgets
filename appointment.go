@@ -41,12 +41,14 @@ func WidgetAppointment(params *ParamsWidgetAppointment) *ResponseWidgetAppointme
 
 			hxhtml.Div(
 				hxprimitives.AttrCSS(
-					`display: flex; flex-wrap: nowrap; gap: 0;`,
+					`display: flex; flex-wrap: nowrap; gap: 0.2em;`,
 				),
 
 				nodesInputDate.HTML,
 
-				WidgetSlots(&params.ParamsWidgetSlots),
+				WidgetSlots(
+					&params.ParamsWidgetSlots,
+				),
 			),
 
 			hxcomponents.ButtonSubmit(
@@ -60,6 +62,8 @@ func CSSAppointment() *pagecss.CSSElement {
 	return &pagecss.CSSElement{
 		CSSAllMedias: `
 		.appointment-container {
+			padding: 0.3em;
+			text-align: right;
 			width: fit-content;
 			background-color:rgb(134, 146, 138);
 
