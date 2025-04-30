@@ -11,6 +11,9 @@ type ParamsWidgetAppointment struct {
 	ParamsWidgetSlots
 	ParamsWidgetInputDate
 
+	SelectLabel  string
+	SelectValues []string
+
 	hxcomponents.ParamsButtonSubmit
 }
 
@@ -25,6 +28,15 @@ func WidgetAppointment(params *ParamsWidgetAppointment) *ResponseWidgetAppointme
 	nodesInputDate := WidgetInputDate(
 		&params.ParamsWidgetInputDate,
 	)
+
+	inputSimple := hxcomponents.InputSelect{
+		CSSDivID: "resource-selection",
+
+		LabelElementName: params.SelectLabel,
+		SelectValues:     params.SelectValues,
+
+		WithEmptyOption: true,
+	}
 
 	return &ResponseWidgetAppointment{
 		LinkJavascript: nodesInputDate.LinkJavascript,
@@ -46,8 +58,16 @@ func WidgetAppointment(params *ParamsWidgetAppointment) *ResponseWidgetAppointme
 
 				nodesInputDate.HTML,
 
-				WidgetSlots(
-					&params.ParamsWidgetSlots,
+				hxhtml.Div(
+					hxprimitives.AttrCSS(
+						`display: flex; flex-direction: column; gap: 0.1em;`,
+					),
+
+					inputSimple.Raw(),
+
+					WidgetSlots(
+						&params.ParamsWidgetSlots,
+					),
 				),
 			),
 
@@ -67,9 +87,12 @@ func CSSAppointment() *pagecss.CSSElement {
 			width: fit-content;
 			background-color:rgb(134, 146, 138);
 
+			#resource-selection {
+				padding-top: 2.1em;
+			}
+
 			.hours-grid {
 				width: 100%;
-				padding-top: 2.1em;
 			}
 		}
 		`,

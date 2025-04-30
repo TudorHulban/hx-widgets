@@ -15,6 +15,12 @@ import (
 func TestAppointment(t *testing.T) {
 	fragment := WidgetAppointment(
 		&ParamsWidgetAppointment{
+			SelectLabel: "Doctor",
+			SelectValues: []string{
+				"John Smith",
+				"Martha Doe",
+			},
+
 			ParamsWidgetSlots: ParamsWidgetSlots{
 				SubmitEndpoint: "xxx",
 				NumberColumns:  1,

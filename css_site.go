@@ -314,9 +314,9 @@ select:focus {
 	outline: auto;
 }
 
-select {
-	height: 55px;
-	padding-right: 35px;
+select {	
+	padding-left: 20px;
+	padding-right: 15px;
 	background-image: url("images/icon-angle-down.svg");
 	background-repeat: no-repeat;
 	background-position: calc(100% - 18px) center;
