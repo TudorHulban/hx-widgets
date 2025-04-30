@@ -10,8 +10,9 @@ import (
 )
 
 const (
-	_ButtonCSSClass = "time-slot"
-	_SlotPrefix     = "slot"
+	_ButtonSubmitCSSClass = "time-slot"
+	_ButtonSubmitCSSID    = "submit"
+	_SlotPrefix           = "slot"
 )
 
 type InfoSlot struct {
@@ -41,8 +42,9 @@ func (slot *InfoSlot) CSSID() string {
 }
 
 type ParamsWidgetSlots struct {
-	SlotsInfo     []*InfoSlot
-	NumberColumns uint8
+	SubmitEndpoint string
+	SlotsInfo      []*InfoSlot
+	NumberColumns  uint8
 }
 
 func WidgetSlots(params *ParamsWidgetSlots) hxprimitives.Node {
@@ -51,7 +53,7 @@ func WidgetSlots(params *ParamsWidgetSlots) hxprimitives.Node {
 			hxhelpers.Sprintf(
 				`<button class=%s id="%s" type="button" onclick="handletimeclick('%s')">%s</button>`,
 
-				_ButtonCSSClass,
+				_ButtonSubmitCSSClass,
 				slot.CSSID(),
 				slot.URL(),
 				slot.Caption,
@@ -66,8 +68,7 @@ func WidgetSlots(params *ParamsWidgetSlots) hxprimitives.Node {
 			function handletimeclick(data){
 			const elems = document.querySelectorAll('.%s');
 			elems.forEach(element => {
-			if (element && element.classList) {
-        	element.classList.remove('selected');
+			if (element && element.classList) {element.classList.remove('selected');
     		}
 			});
 
@@ -77,9 +78,13 @@ func WidgetSlots(params *ParamsWidgetSlots) hxprimitives.Node {
 			const slotCSSID = "%s"+resourceID+"-"+slotID
 
 			const slotElement = document.getElementById(slotCSSID);
+			if (slotElement) {slotElement.classList.add('selected');
 
-			if (slotElement) {
-    		slotElement.classList.add('selected');
+			const submitElement = document.getElementById('%s')
+			if (submitElement) {
+			submitElement.disabled = false;
+			submitElement.setAttribute('hx-post', '%s/'+resourceID+'/'+slotID);
+			};
 
 			console.log('time slot clicked:', data);
   			} else {
@@ -88,8 +93,10 @@ func WidgetSlots(params *ParamsWidgetSlots) hxprimitives.Node {
 			};
 			</script>`,
 
-				_ButtonCSSClass,
+				_ButtonSubmitCSSClass,
 				_SlotPrefix,
+				_ButtonSubmitCSSID,
+				params.SubmitEndpoint,
 			),
 		),
 	}
