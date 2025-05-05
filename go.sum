@@ -2,8 +2,8 @@ github.com/TudorHulban/epochid v0.0.0-20250408074016-75e243c68c87 h1:UN2MBKLBK64
 github.com/TudorHulban/epochid v0.0.0-20250408074016-75e243c68c87/go.mod h1:hcxbLvVE/6UN9hTgI00EpMwg5LYKz9m7xF3jS3ZIVz4=
 github.com/TudorHulban/go-errors v0.0.0-20250328134337-8089e689c00f h1:L1AVDfZANf8l7dPMofRciR1BAqx92Abm0Thwixotf1U=
 github.com/TudorHulban/go-errors v0.0.0-20250328134337-8089e689c00f/go.mod h1:Kgp2ZdTO/L3PJfPam/hyxyreBb1wy+nXCe0+9Xw/M2A=
-github.com/TudorHulban/hx-core v0.0.0-20250501114920-ae40769ee7bb h1:hfvSXZY2ZYZNx4oktRpn/UOfMIn2KaIMaoLfW1ZDE88=
-github.com/TudorHulban/hx-core v0.0.0-20250501114920-ae40769ee7bb/go.mod h1:1h5fai/5qQtSBcLt3Crn7hsBEa9VN/fzWAUriITlD4A=
+github.com/TudorHulban/hx-core v0.0.0-20250504124520-13be6fddfbe0 h1:ASdylPELhW7uHg5+5SaEY2dO1ExPSOAby6LdmFXlsDM=
+github.com/TudorHulban/hx-core v0.0.0-20250504124520-13be6fddfbe0/go.mod h1:1h5fai/5qQtSBcLt3Crn7hsBEa9VN/fzWAUriITlD4A=
 github.com/TudorHulban/hx-request v0.0.0-20250325145103-970b7f1487fb h1:0bc+Nb32tiBhYM921YpErq/hN5xmaSwzdYP/4pfhlMk=
 github.com/TudorHulban/hx-request v0.0.0-20250325145103-970b7f1487fb/go.mod h1:Oi1582EUMwuttIRo+ogJTkQHqMYtv6wzyA+0Db4y8C8=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=

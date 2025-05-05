@@ -12,7 +12,7 @@ func WidgetFooter() hxprimitives.Node {
 		&hxcomponents.ParamsNewFormThreeContainers{
 			IDDivEnclosing:  "footer-info",
 			IDForm:          "form-footer",
-			IDDivContainers: "info",
+			IDDivContainers: "form-footer-info",
 
 			ElementsInputLeft: []hxprimitives.Node{
 				hxhtml.Span(
@@ -82,6 +82,9 @@ func CSSWidgetFooter() *pagecss.CSSElement {
 			color: #eeeeee;
 		};	
 
+		#form-footer-info {
+			display: flex;
+		};
 		#form-footer {padding: 10px;};
 		#copyright {
 			text-align: center;
@@ -90,5 +93,16 @@ func CSSWidgetFooter() *pagecss.CSSElement {
 		};
 		}
 		`,
+
+		CSSResponsive: []pagecss.CSSMedia{
+			{
+				InflexionPointPX: _Tablet,
+				CSS: `
+				#form-footer-info {
+				flex-direction: column;
+				};
+				`,
+			},
+		},
 	}
 }

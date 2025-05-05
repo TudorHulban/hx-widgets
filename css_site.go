@@ -345,7 +345,7 @@ textarea {
 
 		CSSResponsive: []pagecss.CSSMedia{
 			{
-				InflexionPointPX: 992,
+				InflexionPointPX: _Tablet,
 				CSS: `
 				h1 {
 		font-size: 75px;
