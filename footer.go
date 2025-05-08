@@ -84,6 +84,8 @@ func CSSWidgetFooter() *pagecss.CSSElement {
 
 		#form-footer-info {
 			display: flex;
+			flex-direction: row;
+			gap: 10%;
 		};
 		#form-footer {padding: 10px;};
 		#copyright {

@@ -3,7 +3,7 @@ module github.com/TudorHulban/hx-widgets
 go 1.24.1
 
 require (
-	github.com/TudorHulban/hx-core v0.0.0-20250504124520-13be6fddfbe0
+	github.com/TudorHulban/hx-core v0.0.0-20250508111308-131cecda5bbb
 	github.com/stretchr/testify v1.10.0
 )
 
