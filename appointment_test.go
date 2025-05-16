@@ -101,7 +101,7 @@ func TestAppointment(t *testing.T) {
 		)...,
 	)
 
-	cssPage.GetCSSTo(writerCSS)
+	cssPage.GetNormalizedCSSAccurateTo(writerCSS)
 
 	writerHTML, errWriterHTML := getFileWriter(t.Name() + ".html")
 	require.NoError(t, errWriterHTML)

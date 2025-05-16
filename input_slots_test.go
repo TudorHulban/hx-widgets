@@ -75,7 +75,7 @@ func TestSlots(t *testing.T) {
 		CSSWidgetSlots,
 	)
 
-	cssPage.GetCSSTo(writerCSS)
+	cssPage.GetNormalizedCSSAccurateTo(writerCSS)
 
 	writerHTML, errWriterHTML := getFileWriter(t.Name() + ".html")
 	require.NoError(t, errWriterHTML)
