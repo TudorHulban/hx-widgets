@@ -75,7 +75,13 @@ func TestSlots(t *testing.T) {
 		CSSWidgetSlots,
 	)
 
-	cssPage.GetNormalizedCSSAccurateTo(writerCSS)
+	cssPage.GetCSSAccurateBeautifiedTo(
+		writerCSS,
+		&pagecss.ParamsSpaces{
+			NumberSpaces:              5,
+			IncrementWithNumberSpaces: 2,
+		},
+	)
 
 	writerHTML, errWriterHTML := getFileWriter(t.Name() + ".html")
 	require.NoError(t, errWriterHTML)

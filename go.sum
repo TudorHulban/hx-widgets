@@ -1,13 +1,9 @@
 github.com/TudorHulban/epochid v0.0.0-20250408074016-75e243c68c87 h1:UN2MBKLBK64hJavLFDlsrt/Kh07hEYTqzvwllvehbn8=
 github.com/TudorHulban/epochid v0.0.0-20250408074016-75e243c68c87/go.mod h1:hcxbLvVE/6UN9hTgI00EpMwg5LYKz9m7xF3jS3ZIVz4=
-github.com/TudorHulban/go-errors v0.0.0-20250328134337-8089e689c00f h1:L1AVDfZANf8l7dPMofRciR1BAqx92Abm0Thwixotf1U=
-github.com/TudorHulban/go-errors v0.0.0-20250328134337-8089e689c00f/go.mod h1:Kgp2ZdTO/L3PJfPam/hyxyreBb1wy+nXCe0+9Xw/M2A=
 github.com/TudorHulban/go-errors v0.0.0-20250513130253-80d5fda2c08b h1:8guhTNW86ASU1cRHZqCRzd7YmdM0ljIAnxY9B1pYX1c=
 github.com/TudorHulban/go-errors v0.0.0-20250513130253-80d5fda2c08b/go.mod h1:qvQZ/acYbqlKiEFR3hzHFWlAIGXi9mcelK6ofHDspm8=
-github.com/TudorHulban/hx-core v0.0.0-20250508111308-131cecda5bbb h1:l75tK7BxXhGia1rHteLfjzODJcZzW4sx+Cc7RlI5vtY=
-github.com/TudorHulban/hx-core v0.0.0-20250508111308-131cecda5bbb/go.mod h1:1h5fai/5qQtSBcLt3Crn7hsBEa9VN/fzWAUriITlD4A=
-github.com/TudorHulban/hx-core v0.0.0-20250508145310-e23283fd9806 h1:jJPdCODIRYSijXRyz45FlVgWg10n56nnePcXXcbFUtM=
-github.com/TudorHulban/hx-core v0.0.0-20250508145310-e23283fd9806/go.mod h1:1h5fai/5qQtSBcLt3Crn7hsBEa9VN/fzWAUriITlD4A=
+github.com/TudorHulban/hx-core v0.0.0-20250518144234-65d04946231b h1:WFga68SH+XJXCIEx3+b1NgzMvyxYs3VO8K+xvXkw3K8=
+github.com/TudorHulban/hx-core v0.0.0-20250518144234-65d04946231b/go.mod h1:g5a0QnDqQoF4HZhLiSxrVp8cWD41jvjNJi6CRrPKZNs=
 github.com/TudorHulban/hx-request v0.0.0-20250325145103-970b7f1487fb h1:0bc+Nb32tiBhYM921YpErq/hN5xmaSwzdYP/4pfhlMk=
 github.com/TudorHulban/hx-request v0.0.0-20250325145103-970b7f1487fb/go.mod h1:Oi1582EUMwuttIRo+ogJTkQHqMYtv6wzyA+0Db4y8C8=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
@@ -16,6 +12,10 @@ github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZb
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/stretchr/testify v1.10.0 h1:Xv5erBjTwe/5IxqUQTdXv5kgmIvbHo3QQyRwhJsOfJA=
 github.com/stretchr/testify v1.10.0/go.mod h1:r2ic/lqez/lEtzL7wO/rwa5dbSLXVDPFyf8C91i36aY=
+github.com/tdewolff/parse/v2 v2.8.0 h1:jW0afj6zpUGXuZTwJ7/UfP2SddyLalb/SDryjaMTkA4=
+github.com/tdewolff/parse/v2 v2.8.0/go.mod h1:Hwlni2tiVNKyzR1o6nUs4FOF07URA+JLBLd6dlIXYqo=
+github.com/tdewolff/test v1.0.11 h1:FdLbwQVHxqG16SlkGveC0JVyrJN62COWTRyUFzfbtBE=
+github.com/tdewolff/test v1.0.11/go.mod h1:XPuWBzvdUzhCuxWO1ojpXsyzsA5bFoS3tO/Q3kFuTG8=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405 h1:yhCVgyC4o1eVCa2tZl7eS0r+SDo693bJlVdllGtEeKM=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/yaml.v3 v3.0.1 h1:fxVm/GzAzEWqLHuvctI91KS9hhNmmWOoWu0XTYJS7CA=

@@ -3,7 +3,7 @@ module github.com/TudorHulban/hx-widgets
 go 1.24.1
 
 require (
-	github.com/TudorHulban/hx-core v0.0.0-20250508145310-e23283fd9806
+	github.com/TudorHulban/hx-core v0.0.0-20250518144234-65d04946231b
 	github.com/stretchr/testify v1.10.0
 )
 
@@ -13,5 +13,6 @@ require (
 	github.com/TudorHulban/hx-request v0.0.0-20250325145103-970b7f1487fb // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
+	github.com/tdewolff/parse/v2 v2.8.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

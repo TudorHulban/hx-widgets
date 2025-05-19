@@ -40,7 +40,13 @@ func TestFooter(t *testing.T) {
 		CSSWidgetFooter,
 	)
 
-	cssPage.GetNormalizedCSSAccurateTo(writerCSS)
+	cssPage.GetCSSAccurateBeautifiedTo(
+		writerCSS,
+		&pagecss.ParamsSpaces{
+			NumberSpaces:              5,
+			IncrementWithNumberSpaces: 2,
+		},
+	)
 
 	writerHTML, errWriterHTML := getFileWriter(t.Name() + ".html")
 	require.NoError(t, errWriterHTML)
