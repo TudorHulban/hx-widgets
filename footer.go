@@ -75,25 +75,31 @@ func CSSWidgetFooter() *pagecss.CSSElement {
 	return &pagecss.CSSElement{
 		CSSAllMedias: `
 		.page-footer {
-    		background-color: #252525;
+  background-color: #252525;
+}
 
-		span {
-			display: block;
-			color: #eeeeee;
-		};	
+.page-footer span {
+  display: block;
+  color: #eeeeee;
+}
 
-		#form-footer-info {
-			display: flex;
-			flex-direction: row;
-			gap: 10%;
-		};
-		#form-footer {padding: 10px;};
-		#copyright {
-			text-align: center;
+.page-footer #form-footer-info {
+  display: flex;
+  flex-direction: row;
+  gap: 10%;
+}
 
-			h4 {color: #eeeeee;};
-		};
-		}
+.page-footer #form-footer {
+  padding: 10px;
+}
+
+.page-footer #copyright {
+  text-align: center;
+}
+
+.page-footer #copyright h4 {
+  color: #eeeeee;
+}
 		`,
 
 		CSSResponsive: []pagecss.CSSMedia{
@@ -102,7 +108,7 @@ func CSSWidgetFooter() *pagecss.CSSElement {
 				CSS: `
 				#form-footer-info {
 				flex-direction: column;
-				};
+				}
 				`,
 			},
 		},
