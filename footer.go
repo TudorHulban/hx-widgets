@@ -14,6 +14,10 @@ func WidgetFooter() hxprimitives.Node {
 			IDForm:          "form-footer",
 			IDDivContainers: "form-footer-info",
 
+			IDContainerLeft:   "contact-hours",
+			IDContainerMiddle: "contact-address",
+			IDContainerRight:  "footer-links",
+
 			ElementsInputLeft: []hxprimitives.Node{
 				hxhtml.Span(
 					hxprimitives.Text(
@@ -75,7 +79,7 @@ func CSSWidgetFooter() *pagecss.CSSElement {
 	return &pagecss.CSSElement{
 		CSSAllMedias: `
 		.page-footer {
-  background-color: #252525;
+  background-color:rgb(219, 232, 206);
 }
 
 .page-footer span {
@@ -83,21 +87,21 @@ func CSSWidgetFooter() *pagecss.CSSElement {
   color: #eeeeee;
 }
 
-.page-footer #form-footer-info {
+#form-footer-info {
   display: flex;
   flex-direction: row;
   gap: 10%;
 }
 
-.page-footer #form-footer {
+#form-footer {
   padding: 10px;
 }
 
-.page-footer #copyright {
+#copyright {
   text-align: center;
 }
 
-.page-footer #copyright h4 {
+#copyright h4 {
   color: #eeeeee;
 }
 		`,
