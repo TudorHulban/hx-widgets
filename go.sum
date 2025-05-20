@@ -2,8 +2,8 @@ github.com/TudorHulban/epochid v0.0.0-20250408074016-75e243c68c87 h1:UN2MBKLBK64
 github.com/TudorHulban/epochid v0.0.0-20250408074016-75e243c68c87/go.mod h1:hcxbLvVE/6UN9hTgI00EpMwg5LYKz9m7xF3jS3ZIVz4=
 github.com/TudorHulban/go-errors v0.0.0-20250513130253-80d5fda2c08b h1:8guhTNW86ASU1cRHZqCRzd7YmdM0ljIAnxY9B1pYX1c=
 github.com/TudorHulban/go-errors v0.0.0-20250513130253-80d5fda2c08b/go.mod h1:qvQZ/acYbqlKiEFR3hzHFWlAIGXi9mcelK6ofHDspm8=
-github.com/TudorHulban/hx-core v0.0.0-20250519100432-4f8fd66ff3ee h1:RSAe5TSm/GocKy+2GTqvqfmhFOjgKZuARVJdWongEeU=
-github.com/TudorHulban/hx-core v0.0.0-20250519100432-4f8fd66ff3ee/go.mod h1:g5a0QnDqQoF4HZhLiSxrVp8cWD41jvjNJi6CRrPKZNs=
+github.com/TudorHulban/hx-core v0.0.0-20250519152421-7268ebd0b5eb h1:PjyBY3mYfEHluHcdQgGtFZdYsX62bBwAffSETnWrJ/I=
+github.com/TudorHulban/hx-core v0.0.0-20250519152421-7268ebd0b5eb/go.mod h1:g5a0QnDqQoF4HZhLiSxrVp8cWD41jvjNJi6CRrPKZNs=
 github.com/TudorHulban/hx-request v0.0.0-20250325145103-970b7f1487fb h1:0bc+Nb32tiBhYM921YpErq/hN5xmaSwzdYP/4pfhlMk=
 github.com/TudorHulban/hx-request v0.0.0-20250325145103-970b7f1487fb/go.mod h1:Oi1582EUMwuttIRo+ogJTkQHqMYtv6wzyA+0Db4y8C8=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
@@ -14,6 +14,8 @@ github.com/stretchr/testify v1.10.0 h1:Xv5erBjTwe/5IxqUQTdXv5kgmIvbHo3QQyRwhJsOf
 github.com/stretchr/testify v1.10.0/go.mod h1:r2ic/lqez/lEtzL7wO/rwa5dbSLXVDPFyf8C91i36aY=
 github.com/tdewolff/parse/v2 v2.8.0 h1:jW0afj6zpUGXuZTwJ7/UfP2SddyLalb/SDryjaMTkA4=
 github.com/tdewolff/parse/v2 v2.8.0/go.mod h1:Hwlni2tiVNKyzR1o6nUs4FOF07URA+JLBLd6dlIXYqo=
+github.com/tdewolff/parse/v2 v2.8.1 h1:J5GSHru6o3jF1uLlEKVXkDxxcVx6yzOlIVIotK4w2po=
+github.com/tdewolff/parse/v2 v2.8.1/go.mod h1:Hwlni2tiVNKyzR1o6nUs4FOF07URA+JLBLd6dlIXYqo=
 github.com/tdewolff/test v1.0.11 h1:FdLbwQVHxqG16SlkGveC0JVyrJN62COWTRyUFzfbtBE=
 github.com/tdewolff/test v1.0.11/go.mod h1:XPuWBzvdUzhCuxWO1ojpXsyzsA5bFoS3tO/Q3kFuTG8=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405 h1:yhCVgyC4o1eVCa2tZl7eS0r+SDo693bJlVdllGtEeKM=
