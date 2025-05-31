@@ -35,8 +35,8 @@ func TestFooter(t *testing.T) {
 	defer writerCSS.Close()
 
 	cssPage := pagecss.NewCSSPage(
-		// CSSBase,
-		// CSSSite,
+		CSSBase,
+		CSSSite,
 		CSSWidgetFooter,
 	)
 

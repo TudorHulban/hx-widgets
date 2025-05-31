@@ -77,42 +77,87 @@ func WidgetFooter() hxprimitives.Node {
 
 func CSSWidgetFooter() *pagecss.CSSElement {
 	return &pagecss.CSSElement{
+		DesktopFirst: true,
+
 		CSSAllMedias: `
 		.page-footer {
-  background-color:rgb(219, 232, 206);
-}
+            background-color: #333;
+            color: #fff;
+            padding: 1.5rem 1.5rem 0.5rem 1.5rem;
+            width: 100%;
+            font-family: Arial, sans-serif;
+        }
 
-.page-footer span {
-  display: block;
-  color: #eeeeee;
-}
+        #form-footer-info {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
 
-#form-footer-info {
-  display: flex;
-  flex-direction: row;
-  gap: 10%;
-}
+        #form-footer-info > div {
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
 
-#form-footer {
-  padding: 10px;
-}
+        #form-footer-info span {
+            display: block;
+        }
 
-#copyright {
-  text-align: center;
-}
+        #form-footer-info span:first-child {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
 
-#copyright h4 {
-  color: #eeeeee;
-}
-		`,
+        #footer-links span {
+            cursor: pointer;
+            color: #4CAF50;
+            transition: color 0.3s;
+        }
+
+        #footer-links span:hover {
+            color: #45a049;
+        }
+
+        #copyright {
+            text-align: center;
+            margin-top: 1rem;
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+		#copyright h4 {
+    		margin-block-start: 0;
+    		margin-block-end: 0;
+    		margin-inline-start: 0;
+    		margin-inline-end: 0;
+		}
+`,
 
 		CSSResponsive: []pagecss.CSSMedia{
 			{
 				InflexionPointPX: _Tablet,
 				CSS: `
-				#form-footer-info {
-				flex-direction: column;
-				}
+			.page-footer {
+                padding: 1rem;
+            }
+
+			#form-footer-info {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+				gap: 1.5rem;
+            }
+
+            #form-footer-info > div {
+                min-width: 100%;
+            }
 				`,
 			},
 		},

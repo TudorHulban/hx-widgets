@@ -17,15 +17,6 @@ textarea {
 	color: #404040;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	color: #252525;
-}
-
 h1:first-child,
 h2:first-child,
 h3:first-child,
