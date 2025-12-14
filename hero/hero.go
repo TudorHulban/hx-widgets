@@ -1,4 +1,4 @@
-package widgets
+package whero
 
 import (
 	hxcomponents "github.com/TudorHulban/hx-core/components"

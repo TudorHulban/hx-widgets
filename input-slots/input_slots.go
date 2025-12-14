@@ -1,4 +1,4 @@
-package widgets
+package winputslots
 
 import (
 	"fmt"
@@ -10,9 +10,9 @@ import (
 )
 
 const (
-	_ButtonSubmitCSSClass = "time-slot"
-	_ButtonSubmitCSSID    = "submit"
-	_SlotPrefix           = "slot"
+	ButtonSubmitCSSClass = "time-slot"
+	ButtonSubmitCSSID    = "submit"
+	_SlotPrefix          = "slot"
 )
 
 type InfoSlot struct {
@@ -53,7 +53,7 @@ func WidgetSlots(params *ParamsWidgetSlots) hxprimitives.Node {
 			hxhelpers.Sprintf(
 				`<button class=%s id="%s" type="button" onclick="handletimeclick('%s')">%s</button>`,
 
-				_ButtonSubmitCSSClass,
+				ButtonSubmitCSSClass,
 				slot.CSSID(),
 				slot.URL(),
 				slot.Caption,
@@ -93,9 +93,9 @@ func WidgetSlots(params *ParamsWidgetSlots) hxprimitives.Node {
 			};
 			</script>`,
 
-				_ButtonSubmitCSSClass,
+				ButtonSubmitCSSClass,
 				_SlotPrefix,
-				_ButtonSubmitCSSID,
+				ButtonSubmitCSSID,
 				params.SubmitEndpoint,
 			),
 		),

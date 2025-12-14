@@ -1,9 +1,10 @@
-package widgets
+package base
 
 import (
 	"testing"
 
 	pagecss "github.com/TudorHulban/hx-core/page-css"
+	"github.com/TudorHulban/hx-widgets/helpers"
 	"github.com/stretchr/testify/require"
 )
 
@@ -12,7 +13,7 @@ func TestBase(t *testing.T) {
 		CSSBase,
 	)
 
-	writerCSS, errWriterCSS := getFileWriter("generated_base.css")
+	writerCSS, errWriterCSS := helpers.GetFileWriter("generated_base.css")
 	require.NoError(t, errWriterCSS)
 
 	defer writerCSS.Close()
@@ -24,5 +25,4 @@ func TestBase(t *testing.T) {
 			IncrementWithNumberSpaces: 2,
 		},
 	)
-
 }

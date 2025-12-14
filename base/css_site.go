@@ -1,4 +1,4 @@
-package widgets
+package base
 
 import pagecss "github.com/TudorHulban/hx-core/page-css"
 
@@ -336,7 +336,7 @@ textarea {
 
 		CSSResponsive: []pagecss.CSSMedia{
 			{
-				InflexionPointPX: _Tablet,
+				InflexionPointPX: Tablet,
 				CSS: `
 				h1 {
 		font-size: 75px;

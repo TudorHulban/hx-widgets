@@ -1,27 +1,31 @@
-package widgets
+package wheader
 
 import (
 	"fmt"
 	"testing"
-	"time"
 
 	hxcomponents "github.com/TudorHulban/hx-core/components"
 	hxhtml "github.com/TudorHulban/hx-core/html"
 	hxprimitives "github.com/TudorHulban/hx-core/primitives"
+	"github.com/TudorHulban/hx-widgets/helpers"
 	"github.com/stretchr/testify/require"
 )
 
-func TestWidgetInputDate(t *testing.T) {
-	fragment := WidgetInputDate(
-		&ParamsWidgetInputDate{
-			CSSID: "schedule",
+func TestHeader(t *testing.T) {
+	fragment := WidgetHeader(
+		&ParamsWidgetHeader{
+			Title:             "Washing Head",
+			BreadcrumbCaption: "Barbershop/Washing Head",
 
-			DateValue:   time.Now(),
-			HowManyDays: 3,
+			ParamsImage: hxcomponents.ParamsImage{
+				ImageSquareSize: "160",
+				ImageAlt:        "Washing Head",
+				ImageSource:     "https://themes.getmotopress.com/bro-barbershop/wp-content/uploads/sites/64/2024/01/hero-bg-1.jpg",
+			},
 		},
 	)
 
-	writer, errWriter := getFileWriter(t.Name() + ".html")
+	writer, errWriter := helpers.GetFileWriter(t.Name() + ".html")
 	require.NoError(t, errWriter)
 
 	defer writer.Close()
@@ -40,21 +44,12 @@ func TestWidgetInputDate(t *testing.T) {
 			),
 			hxhtml.Link(
 				hxprimitives.Rel("stylesheet"),
-				hxprimitives.Href("https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"),
-			),
-			hxhtml.Link(
-				hxprimitives.Rel("stylesheet"),
-				hxprimitives.Href("https://npmcdn.com/flatpickr/dist/themes/dark.css"),
-			),
-			hxhtml.Link(
-				hxprimitives.Rel("stylesheet"),
-				hxprimitives.Href("input_date.css"),
+				hxprimitives.Href("header.css"),
 			),
 		},
 
 		Body: []hxprimitives.Node{
-			fragment.LinkJavascript,
-			fragment.HTML,
+			fragment,
 		},
 	}
 

@@ -1,34 +1,28 @@
-package widgets
+package winputdate
 
 import (
 	"fmt"
 	"testing"
+	"time"
 
 	hxcomponents "github.com/TudorHulban/hx-core/components"
 	hxhtml "github.com/TudorHulban/hx-core/html"
 	hxprimitives "github.com/TudorHulban/hx-core/primitives"
+	"github.com/TudorHulban/hx-widgets/helpers"
 	"github.com/stretchr/testify/require"
 )
 
-func TestVerticalCard(t *testing.T) {
-	fragment := WidgetCardVertical(
-		&ParamsWidgetCardVertical{
-			WidgetCardVerticalInfo: WidgetCardVerticalInfo{
-				Title: "Jumpin Jack",
-				Price: "4000",
+func TestWidgetInputDate(t *testing.T) {
+	fragment := WidgetInputDate(
+		&ParamsWidgetInputDate{
+			CSSID: "schedule",
 
-				ImageSquareSize: "160",
-				ImageSource:     "https://images.pexels.com/photos/19040825/pexels-photo-19040825.jpeg",
-
-				ActionEndpoint: "TBD",
-			},
-
-			CurrencySimbol: "RON",
-			PriceCaption:   "Price",
+			DateValue:   time.Now(),
+			HowManyDays: 3,
 		},
 	)
 
-	writer, errWriter := getFileWriter(t.Name() + ".html")
+	writer, errWriter := helpers.GetFileWriter(t.Name() + ".html")
 	require.NoError(t, errWriter)
 
 	defer writer.Close()
@@ -47,12 +41,21 @@ func TestVerticalCard(t *testing.T) {
 			),
 			hxhtml.Link(
 				hxprimitives.Rel("stylesheet"),
-				hxprimitives.Href("card.css"),
+				hxprimitives.Href("https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"),
+			),
+			hxhtml.Link(
+				hxprimitives.Rel("stylesheet"),
+				hxprimitives.Href("https://npmcdn.com/flatpickr/dist/themes/dark.css"),
+			),
+			hxhtml.Link(
+				hxprimitives.Rel("stylesheet"),
+				hxprimitives.Href("input_date.css"),
 			),
 		},
 
 		Body: []hxprimitives.Node{
-			fragment,
+			fragment.LinkJavascript,
+			fragment.HTML,
 		},
 	}
 

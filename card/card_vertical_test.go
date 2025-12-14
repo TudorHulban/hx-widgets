@@ -1,4 +1,4 @@
-package widgets
+package wcard
 
 import (
 	"fmt"
@@ -7,24 +7,29 @@ import (
 	hxcomponents "github.com/TudorHulban/hx-core/components"
 	hxhtml "github.com/TudorHulban/hx-core/html"
 	hxprimitives "github.com/TudorHulban/hx-core/primitives"
+	"github.com/TudorHulban/hx-widgets/helpers"
 	"github.com/stretchr/testify/require"
 )
 
-func TestHeader(t *testing.T) {
-	fragment := WidgetHeader(
-		&ParamsWidgetHeader{
-			Title:             "Washing Head",
-			BreadcrumbCaption: "Barbershop/Washing Head",
+func TestVerticalCard(t *testing.T) {
+	fragment := WidgetCardVertical(
+		&ParamsWidgetCardVertical{
+			WidgetCardVerticalInfo: WidgetCardVerticalInfo{
+				Title: "Jumpin Jack",
+				Price: "4000",
 
-			ParamsImage: hxcomponents.ParamsImage{
 				ImageSquareSize: "160",
-				ImageAlt:        "Washing Head",
-				ImageSource:     "https://themes.getmotopress.com/bro-barbershop/wp-content/uploads/sites/64/2024/01/hero-bg-1.jpg",
+				ImageSource:     "https://images.pexels.com/photos/19040825/pexels-photo-19040825.jpeg",
+
+				ActionEndpoint: "TBD",
 			},
+
+			CurrencySimbol: "RON",
+			PriceCaption:   "Price",
 		},
 	)
 
-	writer, errWriter := getFileWriter(t.Name() + ".html")
+	writer, errWriter := helpers.GetFileWriter(t.Name() + ".html")
 	require.NoError(t, errWriter)
 
 	defer writer.Close()
@@ -43,7 +48,7 @@ func TestHeader(t *testing.T) {
 			),
 			hxhtml.Link(
 				hxprimitives.Rel("stylesheet"),
-				hxprimitives.Href("header.css"),
+				hxprimitives.Href("card.css"),
 			),
 		},
 

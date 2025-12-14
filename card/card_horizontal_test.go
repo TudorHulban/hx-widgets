@@ -1,4 +1,4 @@
-package widgets
+package wcard
 
 import (
 	"fmt"
@@ -7,6 +7,8 @@ import (
 	hxcomponents "github.com/TudorHulban/hx-core/components"
 	hxhtml "github.com/TudorHulban/hx-core/html"
 	hxprimitives "github.com/TudorHulban/hx-core/primitives"
+	"github.com/TudorHulban/hx-widgets/base"
+	"github.com/TudorHulban/hx-widgets/helpers"
 	"github.com/stretchr/testify/require"
 )
 
@@ -21,7 +23,7 @@ func TestHorizontalCard(t *testing.T) {
 				ImageSource:     "https://images.pexels.com/photos/668353/pexels-photo-668353.jpeg",
 
 				Text: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam",
-				Highlights: []*Highlight{
+				Highlights: []*base.Highlight{
 					{
 						Label: "Time",
 						Text:  "30 min",
@@ -40,7 +42,7 @@ func TestHorizontalCard(t *testing.T) {
 		},
 	)
 
-	writer, errWriter := getFileWriter(t.Name() + ".html")
+	writer, errWriter := helpers.GetFileWriter(t.Name() + ".html")
 	require.NoError(t, errWriter)
 
 	defer writer.Close()

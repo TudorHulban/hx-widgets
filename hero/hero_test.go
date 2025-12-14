@@ -1,4 +1,4 @@
-package widgets
+package whero
 
 import (
 	"fmt"
@@ -7,6 +7,7 @@ import (
 	hxcomponents "github.com/TudorHulban/hx-core/components"
 	hxhtml "github.com/TudorHulban/hx-core/html"
 	hxprimitives "github.com/TudorHulban/hx-core/primitives"
+	"github.com/TudorHulban/hx-widgets/helpers"
 	"github.com/stretchr/testify/require"
 )
 
@@ -33,7 +34,7 @@ func TestHero(t *testing.T) {
 		},
 	)
 
-	writer, errWriter := getFileWriter(t.Name() + ".html")
+	writer, errWriter := helpers.GetFileWriter(t.Name() + ".html")
 	require.NoError(t, errWriter)
 
 	defer writer.Close()

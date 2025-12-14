@@ -1,4 +1,4 @@
-package widgets
+package wcard
 
 import (
 	"fmt"
@@ -7,6 +7,7 @@ import (
 	hxhelpers "github.com/TudorHulban/hx-core/helpers"
 	hxhtml "github.com/TudorHulban/hx-core/html"
 	hxprimitives "github.com/TudorHulban/hx-core/primitives"
+	"github.com/TudorHulban/hx-widgets/base"
 )
 
 type WidgetCardHorizontalInfo struct {
@@ -17,7 +18,7 @@ type WidgetCardHorizontalInfo struct {
 	ImageSource     string
 
 	Text       string
-	Highlights []*Highlight
+	Highlights []*base.Highlight
 }
 
 type ParamsWidgetCardHorizontal struct {
@@ -81,7 +82,7 @@ func WidgetCardHorizontal(params *ParamsWidgetCardHorizontal) hxprimitives.Node 
 				},
 
 				hxhelpers.ForEachValueWAddition(
-					&hxhelpers.ParamsForEachValueWAddition[*Highlight, hxprimitives.Node]{
+					&hxhelpers.ParamsForEachValueWAddition[*base.Highlight, hxprimitives.Node]{
 						Values: params.Highlights,
 
 						Addition: func() hxprimitives.Node {
@@ -92,7 +93,7 @@ func WidgetCardHorizontal(params *ParamsWidgetCardHorizontal) hxprimitives.Node 
 							)
 						},
 
-						Process: func(item *Highlight) hxprimitives.Node {
+						Process: func(item *base.Highlight) hxprimitives.Node {
 							return hxhtml.Div(
 								hxprimitives.Text(
 									fmt.Sprintf(

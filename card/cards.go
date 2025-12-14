@@ -1,4 +1,4 @@
-package widgets
+package wcard
 
 import (
 	hxhelpers "github.com/TudorHulban/hx-core/helpers"

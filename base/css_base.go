@@ -1,4 +1,4 @@
-package widgets
+package base
 
 import pagecss "github.com/TudorHulban/hx-core/page-css"
 

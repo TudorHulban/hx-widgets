@@ -1,4 +1,4 @@
-package widgets
+package wfooter
 
 import (
 	"fmt"
@@ -8,6 +8,8 @@ import (
 	hxhtml "github.com/TudorHulban/hx-core/html"
 	pagecss "github.com/TudorHulban/hx-core/page-css"
 	hxprimitives "github.com/TudorHulban/hx-core/primitives"
+	"github.com/TudorHulban/hx-widgets/base"
+	"github.com/TudorHulban/hx-widgets/helpers"
 	"github.com/stretchr/testify/require"
 )
 
@@ -29,14 +31,14 @@ func TestFooter(t *testing.T) {
 		},
 	}
 
-	writerCSS, errWriterCSS := getFileWriter("generated.css")
+	writerCSS, errWriterCSS := helpers.GetFileWriter("generated.css")
 	require.NoError(t, errWriterCSS)
 
 	defer writerCSS.Close()
 
 	cssPage := pagecss.NewCSSPage(
-		CSSBase,
-		CSSSite,
+		base.CSSBase,
+		base.CSSSite,
 		CSSWidgetFooter,
 	)
 
@@ -48,7 +50,7 @@ func TestFooter(t *testing.T) {
 		},
 	)
 
-	writerHTML, errWriterHTML := getFileWriter(t.Name() + ".html")
+	writerHTML, errWriterHTML := helpers.GetFileWriter(t.Name() + ".html")
 	require.NoError(t, errWriterHTML)
 
 	defer writerHTML.Close()

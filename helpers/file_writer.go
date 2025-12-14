@@ -1,8 +1,8 @@
-package widgets
+package helpers
 
 import "os"
 
-func getFileWriter(filename string) (*os.File, error) {
+func GetFileWriter(filename string) (*os.File, error) {
 	file, errCreate := os.Create(filename)
 	if errCreate != nil {
 		return nil,

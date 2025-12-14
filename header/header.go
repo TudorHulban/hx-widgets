@@ -1,4 +1,4 @@
-package widgets
+package wheader
 
 import (
 	hxcomponents "github.com/TudorHulban/hx-core/components"

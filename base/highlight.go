@@ -1,4 +1,4 @@
-package widgets
+package base
 
 type Highlight struct {
 	Label string

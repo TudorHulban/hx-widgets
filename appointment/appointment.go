@@ -1,15 +1,17 @@
-package widgets
+package wappointment
 
 import (
 	hxcomponents "github.com/TudorHulban/hx-core/components"
 	hxhtml "github.com/TudorHulban/hx-core/html"
 	pagecss "github.com/TudorHulban/hx-core/page-css"
 	hxprimitives "github.com/TudorHulban/hx-core/primitives"
+	winputdate "github.com/TudorHulban/hx-widgets/input-date"
+	winputslots "github.com/TudorHulban/hx-widgets/input-slots"
 )
 
 type ParamsWidgetAppointment struct {
-	ParamsWidgetSlots
-	ParamsWidgetInputDate
+	winputslots.ParamsWidgetSlots
+	winputdate.ParamsWidgetInputDate
 
 	SelectLabel  string
 	SelectValues []string
@@ -25,7 +27,7 @@ type ResponseWidgetAppointment struct {
 }
 
 func WidgetAppointment(params *ParamsWidgetAppointment) *ResponseWidgetAppointment {
-	nodesInputDate := WidgetInputDate(
+	nodesInputDate := winputdate.WidgetInputDate(
 		&params.ParamsWidgetInputDate,
 	)
 
@@ -41,8 +43,8 @@ func WidgetAppointment(params *ParamsWidgetAppointment) *ResponseWidgetAppointme
 	return &ResponseWidgetAppointment{
 		LinkJavascript: nodesInputDate.LinkJavascript,
 		CSS: []func() *pagecss.CSSElement{
-			CSSInputDate,
-			CSSWidgetSlots,
+			winputdate.CSSInputDate,
+			winputslots.CSSWidgetSlots,
 			CSSAppointment,
 		},
 
@@ -65,7 +67,7 @@ func WidgetAppointment(params *ParamsWidgetAppointment) *ResponseWidgetAppointme
 
 					inputSimple.Raw(),
 
-					WidgetSlots(
+					winputslots.WidgetSlots(
 						&params.ParamsWidgetSlots,
 					),
 				),

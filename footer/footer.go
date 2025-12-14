@@ -1,10 +1,11 @@
-package widgets
+package wfooter
 
 import (
 	hxcomponents "github.com/TudorHulban/hx-core/components"
 	hxhtml "github.com/TudorHulban/hx-core/html"
 	pagecss "github.com/TudorHulban/hx-core/page-css"
 	hxprimitives "github.com/TudorHulban/hx-core/primitives"
+	"github.com/TudorHulban/hx-widgets/base"
 )
 
 func WidgetFooter() hxprimitives.Node {
@@ -142,7 +143,7 @@ func CSSWidgetFooter() *pagecss.CSSElement {
 
 		CSSResponsive: []pagecss.CSSMedia{
 			{
-				InflexionPointPX: _Tablet,
+				InflexionPointPX: base.Tablet,
 				CSS: `
 			.page-footer {
                 padding: 1rem;

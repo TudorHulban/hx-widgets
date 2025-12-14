@@ -7,6 +7,10 @@ import (
 	hxcomponents "github.com/TudorHulban/hx-core/components"
 	hxhtml "github.com/TudorHulban/hx-core/html"
 	hxprimitives "github.com/TudorHulban/hx-core/primitives"
+	wcard "github.com/TudorHulban/hx-widgets/card"
+	wheader "github.com/TudorHulban/hx-widgets/header"
+	"github.com/TudorHulban/hx-widgets/helpers"
+	whero "github.com/TudorHulban/hx-widgets/hero"
 	"github.com/stretchr/testify/require"
 )
 
@@ -22,8 +26,8 @@ func Page() hxprimitives.Node {
 	action4 := "https://themes.getmotopress.com/bro-barbershop/service/mens-haircut/"
 
 	return hxhtml.Div(
-		WidgetHeader(
-			&ParamsWidgetHeader{
+		wheader.WidgetHeader(
+			&wheader.ParamsWidgetHeader{
 				Title: "Barber Shop",
 
 				ParamsImage: hxcomponents.ParamsImage{
@@ -34,8 +38,8 @@ func Page() hxprimitives.Node {
 			},
 		),
 
-		WidgetHero(
-			&ParamsWidgetHero{
+		whero.WidgetHero(
+			&whero.ParamsWidgetHero{
 				Title:   "Expert cuts and classic styles",
 				Message: "Experience the finest grooming services in town. from traditional haircuts to modern styling, we've got you covered.",
 
@@ -56,8 +60,8 @@ func Page() hxprimitives.Node {
 			},
 		),
 
-		WidgetCards(
-			&ParamsWidgetCards{
+		wcard.WidgetCards(
+			&wcard.ParamsWidgetCards{
 				Title: "Popular Services",
 
 				CurrencySimbol: "RON",
@@ -65,7 +69,7 @@ func Page() hxprimitives.Node {
 
 				CSSFlexGap: "20px",
 
-				Cards: []*WidgetCardVerticalInfo{
+				Cards: []*wcard.WidgetCardVerticalInfo{
 					{
 						Title: "Washing Head",
 						Price: "49",
@@ -109,7 +113,7 @@ func Page() hxprimitives.Node {
 }
 
 func TestPage(t *testing.T) {
-	writer, errWriter := getFileWriter(t.Name() + ".html")
+	writer, errWriter := helpers.GetFileWriter(t.Name() + ".html")
 	require.NoError(t, errWriter)
 
 	defer writer.Close()

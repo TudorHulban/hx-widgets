@@ -1,4 +1,4 @@
-package widgets
+package wappointment
 
 import (
 	"fmt"
@@ -9,6 +9,10 @@ import (
 	hxhtml "github.com/TudorHulban/hx-core/html"
 	pagecss "github.com/TudorHulban/hx-core/page-css"
 	hxprimitives "github.com/TudorHulban/hx-core/primitives"
+	"github.com/TudorHulban/hx-widgets/base"
+	"github.com/TudorHulban/hx-widgets/helpers"
+	winputdate "github.com/TudorHulban/hx-widgets/input-date"
+	winputslots "github.com/TudorHulban/hx-widgets/input-slots"
 	"github.com/stretchr/testify/require"
 )
 
@@ -21,11 +25,11 @@ func TestAppointment(t *testing.T) {
 				"Martha Doe",
 			},
 
-			ParamsWidgetSlots: ParamsWidgetSlots{
+			ParamsWidgetSlots: winputslots.ParamsWidgetSlots{
 				SubmitEndpoint: "xxx",
 				NumberColumns:  1,
 
-				SlotsInfo: []*InfoSlot{
+				SlotsInfo: []*winputslots.InfoSlot{
 					{
 						ResourceID: 1,
 						SlotID:     1000,
@@ -48,7 +52,7 @@ func TestAppointment(t *testing.T) {
 					},
 				},
 			},
-			ParamsWidgetInputDate: ParamsWidgetInputDate{
+			ParamsWidgetInputDate: winputdate.ParamsWidgetInputDate{
 				CSSID: "schedule",
 
 				DateValue:   time.Now(),
@@ -57,7 +61,7 @@ func TestAppointment(t *testing.T) {
 			ParamsButtonSubmit: hxcomponents.ParamsButtonSubmit{
 				Label:    "Submit",
 				CSSClass: "btn-submit",
-				CSSID:    _ButtonSubmitCSSID,
+				CSSID:    winputslots.ButtonSubmitCSSID,
 			},
 		},
 	)
@@ -86,7 +90,7 @@ func TestAppointment(t *testing.T) {
 		},
 	}
 
-	writerCSS, errWriterCSS := getFileWriter("generated.css")
+	writerCSS, errWriterCSS := helpers.GetFileWriter("generated.css")
 	require.NoError(t, errWriterCSS)
 
 	defer writerCSS.Close()
@@ -94,8 +98,8 @@ func TestAppointment(t *testing.T) {
 	cssPage := pagecss.NewCSSPage(
 		append(
 			[]func() *pagecss.CSSElement{
-				CSSBase,
-				CSSSite,
+				base.CSSBase,
+				base.CSSSite,
 			},
 			fragment.CSS...,
 		)...,
@@ -109,7 +113,7 @@ func TestAppointment(t *testing.T) {
 		},
 	)
 
-	writerHTML, errWriterHTML := getFileWriter(t.Name() + ".html")
+	writerHTML, errWriterHTML := helpers.GetFileWriter(t.Name() + ".html")
 	require.NoError(t, errWriterHTML)
 
 	defer writerHTML.Close()
